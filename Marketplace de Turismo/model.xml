@@ -12,9 +12,18 @@
 							<feature mandatory="true" name="FormularioRegistroProveedor"/>
 						</and>
 					</and>
+					<and mandatory="true" name="Perfil">
+						<feature mandatory="true" name="Administración_Perfil"/>
+						<feature name="Panel_Perfil"/>
+						<and mandatory="true" name="Administrador_Perfil_Proveedor">
+							<feature name="Administrar_Roles"/>
+						</and>
+					</and>
 					<or mandatory="true" name="Sesión">
 						<feature mandatory="true" name="Acceso_RedesSociales"/>
-						<feature mandatory="true" name="Acceso_Formulario"/>
+						<and mandatory="true" name="Acceso_Formulario">
+							<feature name="Reestablecimiento_Contraseña"/>
+						</and>
 					</or>
 					<feature mandatory="true" name="ValidacionProveedores"/>
 				</and>
@@ -24,6 +33,7 @@
 						<feature mandatory="true" name="Ordenador"/>
 						<feature mandatory="true" name="Mapa_Productos"/>
 					</alt>
+					<feature mandatory="true" name="Busquedas"/>
 				</and>
 				<and mandatory="true" name="Producto">
 					<feature mandatory="true" name="Información_Básica"/>
@@ -42,9 +52,12 @@
 						<feature mandatory="true" name="Servicios_Adicionales"/>
 					</or>
 					<feature name="Localización"/>
-					<feature name="Ofertas_Relacionadas"/>
+					<or name="Productos_Relacionados">
+						<feature mandatory="true" name="Ofertas_Relacionadas"/>
+						<feature mandatory="true" name="Comparador"/>
+					</or>
 				</and>
-				<and mandatory="true" name="Carrito">
+				<and mandatory="true" name="Carrito_Compras">
 					<feature mandatory="true" name="ListaProductosSeleccionados"/>
 					<feature mandatory="true" name="Subtotal"/>
 					<or name="Checkout">
@@ -61,6 +74,7 @@
 					<feature mandatory="true" name="Foros"/>
 					<feature mandatory="true" name="Chat"/>
 					<feature name="Notificaciones"/>
+					<feature mandatory="true" name="Mensajeria_Interna"/>
 				</and>
 				<and mandatory="true" name="Template">
 					<feature name="Panel_Busqueda"/>
@@ -71,9 +85,10 @@
 					<and mandatory="true" name="Gestor_Producto">
 						<feature mandatory="true" name="Creación_Producto"/>
 						<feature name="Modificación_Producto"/>
+						<feature name="Publicación_Producto"/>
 					</and>
 					<and name="Ofertas">
-						<feature name="Vigencia"/>
+						<feature name="VigenciaOferta"/>
 					</and>
 					<feature name="Eventos"/>
 				</and>
@@ -84,13 +99,17 @@
 						<feature name="Twitter"/>
 					</and>
 					<feature mandatory="true" name="Proveedores_Pagos"/>
+					<feature mandatory="true" name="Correo_Electronico"/>
 				</or>
 				<and mandatory="true" name="Utilidades">
 					<feature mandatory="true" name="Localización_Geografica"/>
 					<feature name="Calendario"/>
 				</and>
-				<feature mandatory="true" name="Perfil"/>
-				<feature name="Reportes"/>
+				<and name="Reportes">
+					<feature mandatory="true" name="Historicos"/>
+					<feature name="Analytics"/>
+					<feature name="Reporte_Reviews"/>
+				</and>
 			</and>
 		</struct>
 		<constraints>
@@ -114,13 +133,13 @@
 			</rule>
 			<rule>
 				<imp>
-					<var>Perfil</var>
+					<var>Administración_Perfil</var>
 					<var>Registro</var>
 				</imp>
 			</rule>
 			<rule>
 				<imp>
-					<var>Perfil</var>
+					<var>Administración_Perfil</var>
 					<var>Sesión</var>
 				</imp>
 			</rule>
@@ -182,7 +201,7 @@
 			</rule>
 			<rule>
 				<imp>
-					<var>Vigencia</var>
+					<var>VigenciaOferta</var>
 					<var>Calendario</var>
 				</imp>
 			</rule>
@@ -190,6 +209,24 @@
 				<imp>
 					<var>Eventos</var>
 					<var>Calendario</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Reestablecimiento_Contraseña</var>
+					<var>Correo_Electronico</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Notificaciones</var>
+					<var>Correo_Electronico</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Reporte_Reviews</var>
+					<var>Review</var>
 				</imp>
 			</rule>
 		</constraints>
