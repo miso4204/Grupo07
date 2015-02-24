@@ -2,27 +2,17 @@
 	<featureModel chosenLayoutAlgorithm="4">
 		<struct>
 			<and abstract="true" mandatory="true" name="MarketplaceTurismo">
-				<and mandatory="true" name="Registro">
-					<alt mandatory="true" name="RegistroCliente">
-						<and mandatory="true" name="FormularioRegistroCliente">
-							<feature mandatory="true" name="NombreUsuario"/>
-							<feature mandatory="true" name="CorreoUsuario"/>
-							<feature mandatory="true" name="PasswordUsuario"/>
-							<feature name="TelefonoUsuario"/>
-							<feature name="DireccionUsuario"/>
-						</and>
-						<feature mandatory="true" name="RedesSociales"/>
-					</alt>
-					<and mandatory="true" name="RegistroProveedor">
-						<and mandatory="true" name="FormularioRegistroProveedor">
-							<feature mandatory="true" name="NombreProveedor"/>
-							<feature mandatory="true" name="CorreoProveedor"/>
-							<feature mandatory="true" name="TelefonoProveedor"/>
-							<feature mandatory="true" name="NITProveedor"/>
-							<feature mandatory="true" name="DireccionProveedor"/>
-							<feature mandatory="true" name="TipoDeServicioProveedor"/>
+				<and name="Seguridad">
+					<and mandatory="true" name="Registro">
+						<or mandatory="true" name="RegistroCliente">
+							<feature mandatory="true" name="FormularioRegistroCliente"/>
+							<feature mandatory="true" name="Registro_RedesSociales"/>
+						</or>
+						<and mandatory="true" name="RegistroProveedor">
+							<feature mandatory="true" name="FormularioRegistroProveedor"/>
 						</and>
 					</and>
+					<feature name="Sesión"/>
 				</and>
 				<and mandatory="true" name="ValidacionProveedoresNuevos">
 					<and mandatory="true" name="ListaSolicitudesRegistroProveedor">
@@ -69,6 +59,7 @@
 					<feature name="Notificaciones"/>
 				</and>
 				<feature name="Calendario"/>
+				<feature name="Conexion_Externa"/>
 			</and>
 		</struct>
 		<constraints>
@@ -76,6 +67,12 @@
 				<imp>
 					<var>Reviews</var>
 					<var>Posventa</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Registro_RedesSociales</var>
+					<var>Conexion_Externa</var>
 				</imp>
 			</rule>
 		</constraints>
