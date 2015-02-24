@@ -41,33 +41,56 @@
 						<feature mandatory="true" name="Renta_Autos"/>
 						<feature mandatory="true" name="Servicios_Adicionales"/>
 					</or>
+					<feature name="Localización"/>
+					<feature name="Ofertas_Relacionadas"/>
 				</and>
 				<and mandatory="true" name="Carrito">
 					<feature mandatory="true" name="ListaProductosSeleccionados"/>
 					<feature mandatory="true" name="Subtotal"/>
-					<feature name="CostosAdicionales"/>
+					<or name="Checkout">
+						<feature mandatory="true" name="Tarjeta_Credito"/>
+						<feature mandatory="true" name="Recibo"/>
+					</or>
 				</and>
 				<and name="Posventa">
-					<and mandatory="true" name="CalificacionProducto">
-						<feature mandatory="true" name="CalificacionPrecio"/>
-						<feature mandatory="true" name="CalificacionCalidad"/>
-					</and>
-					<feature name="Resena"/>
+					<feature mandatory="true" name="CalificacionProducto"/>
+					<feature name="Review"/>
+					<feature name="Denuncias"/>
 				</and>
 				<and name="Comunicaciones">
 					<feature mandatory="true" name="Foros"/>
 					<feature mandatory="true" name="Chat"/>
 					<feature name="Notificaciones"/>
 				</and>
-				<feature name="Calendario"/>
-				<feature name="Conexion_Externa"/>
-				<feature mandatory="true" name="Perfil"/>
 				<and mandatory="true" name="Template">
 					<feature name="Panel_Busqueda"/>
 					<feature mandatory="true" name="Header"/>
 					<feature mandatory="true" name="Footer"/>
 				</and>
-				<feature name="Localización_Geografica"/>
+				<and mandatory="true" name="Gestor_Contenido">
+					<and mandatory="true" name="Gestor_Producto">
+						<feature mandatory="true" name="Creación_Producto"/>
+						<feature name="Modificación_Producto"/>
+					</and>
+					<and name="Ofertas">
+						<feature name="Vigencia"/>
+					</and>
+					<feature name="Eventos"/>
+				</and>
+				<or name="Conexion_Externa">
+					<and mandatory="true" name="Redes_Sociales">
+						<feature name="Facebook"/>
+						<feature name="Google"/>
+						<feature name="Twitter"/>
+					</and>
+					<feature mandatory="true" name="Proveedores_Pagos"/>
+				</or>
+				<and mandatory="true" name="Utilidades">
+					<feature mandatory="true" name="Localización_Geografica"/>
+					<feature name="Calendario"/>
+				</and>
+				<feature mandatory="true" name="Perfil"/>
+				<feature name="Reportes"/>
 			</and>
 		</struct>
 		<constraints>
@@ -80,7 +103,7 @@
 			<rule>
 				<imp>
 					<var>Registro_RedesSociales</var>
-					<var>Conexion_Externa</var>
+					<var>Redes_Sociales</var>
 				</imp>
 			</rule>
 			<rule>
@@ -110,7 +133,63 @@
 			<rule>
 				<imp>
 					<var>Compartir_Producto</var>
-					<var>Conexion_Externa</var>
+					<var>Redes_Sociales</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Localización</var>
+					<var>Localización_Geografica</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Tarjeta_Credito</var>
+					<var>Proveedores_Pagos</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Denuncias</var>
+					<not>
+						<var>Review</var>
+					</not>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Review</var>
+					<var>Redes_Sociales</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Creación_Producto</var>
+					<var>Localización_Geografica</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Modificación_Producto</var>
+					<var>Localización_Geografica</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Ofertas_Relacionadas</var>
+					<var>Ofertas</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Vigencia</var>
+					<var>Calendario</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Eventos</var>
+					<var>Calendario</var>
 				</imp>
 			</rule>
 		</constraints>
