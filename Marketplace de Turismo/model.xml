@@ -2,7 +2,7 @@
 	<featureModel chosenLayoutAlgorithm="4">
 		<struct>
 			<and abstract="true" mandatory="true" name="MarketplaceTurismo">
-				<and name="Seguridad">
+				<and mandatory="true" name="Seguridad">
 					<and mandatory="true" name="Registro">
 						<or mandatory="true" name="RegistroCliente">
 							<feature mandatory="true" name="FormularioRegistroCliente"/>
@@ -12,7 +12,10 @@
 							<feature mandatory="true" name="FormularioRegistroProveedor"/>
 						</and>
 					</and>
-					<feature name="Sesión"/>
+					<or mandatory="true" name="Sesión">
+						<feature mandatory="true" name="Acceso_RedesSociales"/>
+						<feature mandatory="true" name="Acceso_Formulario"/>
+					</or>
 				</and>
 				<and mandatory="true" name="ValidacionProveedoresNuevos">
 					<and mandatory="true" name="ListaSolicitudesRegistroProveedor">
@@ -60,6 +63,7 @@
 				</and>
 				<feature name="Calendario"/>
 				<feature name="Conexion_Externa"/>
+				<feature mandatory="true" name="Perfil"/>
 			</and>
 		</struct>
 		<constraints>
@@ -73,6 +77,12 @@
 				<imp>
 					<var>Registro_RedesSociales</var>
 					<var>Conexion_Externa</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Acceso_RedesSociales</var>
+					<var>Registro_RedesSociales</var>
 				</imp>
 			</rule>
 		</constraints>
