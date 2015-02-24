@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="4">
+		<struct>
+			<and abstract="true" mandatory="true" name="MarketplaceTurismo">
+				<and mandatory="true" name="Registro">
+					<alt mandatory="true" name="RegistroCliente">
+						<and mandatory="true" name="FormularioRegistroCliente">
+							<feature mandatory="true" name="NombreUsuario"/>
+							<feature mandatory="true" name="CorreoUsuario"/>
+							<feature mandatory="true" name="PasswordUsuario"/>
+							<feature name="TelefonoUsuario"/>
+							<feature name="DireccionUsuario"/>
+						</and>
+						<feature mandatory="true" name="RedesSociales"/>
+					</alt>
+					<and mandatory="true" name="RegistroProveedor">
+						<and mandatory="true" name="FormularioRegistroProveedor">
+							<feature mandatory="true" name="NombreProveedor"/>
+							<feature mandatory="true" name="CorreoProveedor"/>
+							<feature mandatory="true" name="TelefonoProveedor"/>
+							<feature mandatory="true" name="NITProveedor"/>
+							<feature mandatory="true" name="DireccionProveedor"/>
+							<feature mandatory="true" name="TipoDeServicioProveedor"/>
+						</and>
+					</and>
+				</and>
+				<and mandatory="true" name="ValidacionProveedoresNuevos">
+					<and mandatory="true" name="ListaSolicitudesRegistroProveedor">
+						<feature mandatory="true" name="AprobarProveedor"/>
+						<feature mandatory="true" name="RechazarProveedor"/>
+					</and>
+				</and>
+				<and mandatory="true" name="Header">
+					<feature mandatory="true" name="SistemaBusqueda"/>
+					<feature mandatory="true" name="LoginUsuario"/>
+				</and>
+				<and mandatory="true" name="GaleriaProductos">
+					<feature mandatory="true" name="ListaProductosDisponibles"/>
+					<feature mandatory="true" name="GridProductosDisponibles"/>
+				</and>
+				<and mandatory="true" name="DetallesProducto">
+					<feature mandatory="true" name="NombreProducto"/>
+					<feature mandatory="true" name="Descripcion"/>
+					<feature mandatory="true" name="Precio"/>
+					<and mandatory="true" name="MultiMedia">
+						<feature mandatory="true" name="Imagenes"/>
+						<feature name="Audio"/>
+						<feature name="Video"/>
+					</and>
+					<feature mandatory="true" name="AgregarAlCarrito"/>
+					<feature name="Reviews"/>
+					<feature name="PreguntaAlProveedor"/>
+				</and>
+				<and mandatory="true" name="Carrito">
+					<feature mandatory="true" name="ListaProductosSeleccionados"/>
+					<feature mandatory="true" name="Subtotal"/>
+					<feature name="CostosAdicionales"/>
+				</and>
+				<and name="Posventa">
+					<and mandatory="true" name="CalificacionProducto">
+						<feature mandatory="true" name="CalificacionPrecio"/>
+						<feature mandatory="true" name="CalificacionCalidad"/>
+					</and>
+					<feature name="Resena"/>
+				</and>
+				<and name="Comunicaciones">
+					<feature mandatory="true" name="Foros"/>
+					<feature mandatory="true" name="Chat"/>
+					<feature name="Notificaciones"/>
+				</and>
+				<feature name="Calendario"/>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Reviews</var>
+					<var>Posventa</var>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
