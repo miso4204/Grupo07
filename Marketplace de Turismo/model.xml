@@ -16,33 +16,31 @@
 						<feature mandatory="true" name="Acceso_RedesSociales"/>
 						<feature mandatory="true" name="Acceso_Formulario"/>
 					</or>
-				</and>
-				<and mandatory="true" name="ValidacionProveedoresNuevos">
-					<and mandatory="true" name="ListaSolicitudesRegistroProveedor">
-						<feature mandatory="true" name="AprobarProveedor"/>
-						<feature mandatory="true" name="RechazarProveedor"/>
-					</and>
-				</and>
-				<and mandatory="true" name="Header">
-					<feature mandatory="true" name="SistemaBusqueda"/>
-					<feature mandatory="true" name="LoginUsuario"/>
+					<feature mandatory="true" name="ValidacionProveedores"/>
 				</and>
 				<and mandatory="true" name="GaleriaProductos">
-					<feature mandatory="true" name="ListaProductosDisponibles"/>
-					<feature mandatory="true" name="GridProductosDisponibles"/>
+					<alt mandatory="true" name="GridProductos">
+						<feature mandatory="true" name="Filtros"/>
+						<feature mandatory="true" name="Ordenador"/>
+						<feature mandatory="true" name="Mapa_Productos"/>
+					</alt>
 				</and>
-				<and mandatory="true" name="DetallesProducto">
-					<feature mandatory="true" name="NombreProducto"/>
-					<feature mandatory="true" name="Descripcion"/>
-					<feature mandatory="true" name="Precio"/>
+				<and mandatory="true" name="Producto">
+					<feature mandatory="true" name="Información_Básica"/>
 					<and mandatory="true" name="MultiMedia">
 						<feature mandatory="true" name="Imagenes"/>
 						<feature name="Audio"/>
 						<feature name="Video"/>
 					</and>
-					<feature mandatory="true" name="AgregarAlCarrito"/>
-					<feature name="Reviews"/>
-					<feature name="PreguntaAlProveedor"/>
+					<feature name="Lista_Reviews"/>
+					<feature name="Consultas"/>
+					<feature name="Compartir_Producto"/>
+					<or name="Planeador">
+						<feature mandatory="true" name="Lista_Hoteles"/>
+						<feature mandatory="true" name="Lista_Vuelos"/>
+						<feature mandatory="true" name="Renta_Autos"/>
+						<feature mandatory="true" name="Servicios_Adicionales"/>
+					</or>
 				</and>
 				<and mandatory="true" name="Carrito">
 					<feature mandatory="true" name="ListaProductosSeleccionados"/>
@@ -64,12 +62,18 @@
 				<feature name="Calendario"/>
 				<feature name="Conexion_Externa"/>
 				<feature mandatory="true" name="Perfil"/>
+				<and mandatory="true" name="Template">
+					<feature name="Panel_Busqueda"/>
+					<feature mandatory="true" name="Header"/>
+					<feature mandatory="true" name="Footer"/>
+				</and>
+				<feature name="Localización_Geografica"/>
 			</and>
 		</struct>
 		<constraints>
 			<rule>
 				<imp>
-					<var>Reviews</var>
+					<var>Lista_Reviews</var>
 					<var>Posventa</var>
 				</imp>
 			</rule>
@@ -83,6 +87,30 @@
 				<imp>
 					<var>Acceso_RedesSociales</var>
 					<var>Registro_RedesSociales</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Perfil</var>
+					<var>Registro</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Perfil</var>
+					<var>Sesión</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Mapa_Productos</var>
+					<var>Localización_Geografica</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Compartir_Producto</var>
+					<var>Conexion_Externa</var>
 				</imp>
 			</rule>
 		</constraints>
