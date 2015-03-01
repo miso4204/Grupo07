@@ -37,12 +37,7 @@
 				</and>
 				<and mandatory="true" name="Producto">
 					<feature mandatory="true" name="Información_Básica"/>
-					<and mandatory="true" name="MultiMedia">
-						<feature mandatory="true" name="Imagenes"/>
-						<feature name="Audio"/>
-						<feature name="Video"/>
-						<feature name="Mapa"/>
-					</and>
+					<feature mandatory="true" name="MultiMedia"/>
 					<feature name="Lista_Reviews"/>
 					<feature name="Consultas"/>
 					<feature name="Compartir_Producto"/>
@@ -52,7 +47,6 @@
 						<feature mandatory="true" name="Renta_Autos"/>
 						<feature mandatory="true" name="Servicios_Adicionales"/>
 					</or>
-					<feature name="Localización"/>
 					<or name="Productos_Relacionados">
 						<feature mandatory="true" name="Ofertas_Relacionadas"/>
 						<feature mandatory="true" name="Comparador"/>
@@ -83,22 +77,14 @@
 					<feature mandatory="true" name="Footer"/>
 				</and>
 				<and mandatory="true" name="Gestor_Contenido">
-					<and mandatory="true" name="Gestor_Producto">
-						<feature mandatory="true" name="Creación_Producto"/>
-						<feature name="Modificación_Producto"/>
-						<feature name="Publicación_Producto"/>
-					</and>
+					<feature mandatory="true" name="Gestor_Producto"/>
 					<and name="Ofertas">
 						<feature name="VigenciaOferta"/>
 					</and>
 					<feature name="Eventos"/>
 				</and>
 				<or name="Conexion_Externa">
-					<and mandatory="true" name="Redes_Sociales">
-						<feature name="Facebook"/>
-						<feature name="Google"/>
-						<feature name="Twitter"/>
-					</and>
+					<feature mandatory="true" name="Redes_Sociales"/>
 					<feature mandatory="true" name="Proveedores_Pagos"/>
 					<feature mandatory="true" name="Correo_Electronico"/>
 				</or>
@@ -161,12 +147,6 @@
 			</rule>
 			<rule>
 				<imp>
-					<var>Localización</var>
-					<var>Localización_Geografica</var>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
 					<var>Tarjeta_Credito</var>
 					<var>Proveedores_Pagos</var>
 				</imp>
@@ -183,18 +163,6 @@
 				<imp>
 					<var>Review</var>
 					<var>Redes_Sociales</var>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<var>Creación_Producto</var>
-					<var>Localización_Geografica</var>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<var>Modificación_Producto</var>
-					<var>Localización_Geografica</var>
 				</imp>
 			</rule>
 			<rule>
@@ -241,7 +209,7 @@
 			</rule>
 			<rule>
 				<imp>
-					<var>Mapa</var>
+					<var>MultiMedia</var>
 					<var>Localización_Geografica</var>
 				</imp>
 			</rule>
