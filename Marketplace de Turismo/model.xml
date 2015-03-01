@@ -22,7 +22,7 @@
 					<alt mandatory="true" name="Sesión">
 						<feature mandatory="true" name="Acceso_RedesSociales"/>
 						<and mandatory="true" name="Acceso_Formulario">
-							<feature name="Reestablecimiento_Contraseña"/>
+							<feature mandatory="true" name="Reestablecimiento_Contraseña"/>
 						</and>
 					</alt>
 					<feature mandatory="true" name="ValidacionProveedores"/>
