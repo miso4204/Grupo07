@@ -4,7 +4,7 @@
 			<and abstract="true" mandatory="true" name="MarketplaceTurismo">
 				<and mandatory="true" name="Seguridad">
 					<and mandatory="true" name="Registro">
-						<and mandatory="true" name="RegistroCliente">
+						<and name="RegistroCliente">
 							<feature mandatory="true" name="FormularioRegistroCliente"/>
 							<feature name="Registro_RedesSociales"/>
 						</and>
@@ -13,25 +13,23 @@
 						</and>
 					</and>
 					<and mandatory="true" name="Perfil">
-						<feature mandatory="true" name="Administración_Perfil"/>
+						<feature name="Administración_Perfil"/>
 						<feature name="Panel_Perfil"/>
 						<and mandatory="true" name="Administrador_Perfil_Proveedor">
 							<feature name="Administrar_Roles"/>
 						</and>
 					</and>
-					<alt mandatory="true" name="Sesión">
+					<or name="Sesión">
 						<feature mandatory="true" name="Acceso_RedesSociales"/>
-						<and mandatory="true" name="Acceso_Formulario">
-							<feature mandatory="true" name="Reestablecimiento_Contraseña"/>
-						</and>
-					</alt>
+						<feature mandatory="true" name="Acceso_Formulario"/>
+					</or>
 					<feature mandatory="true" name="ValidacionProveedores"/>
 				</and>
 				<and mandatory="true" name="GaleriaProductos">
 					<and mandatory="true" name="GridProductos">
 						<feature name="Filtros"/>
 						<feature mandatory="true" name="Ordenador"/>
-						<feature name="Mapa_Productos"/>
+						<feature mandatory="true" name="Mapa_Productos"/>
 					</and>
 					<feature mandatory="true" name="Busquedas"/>
 				</and>
@@ -70,11 +68,6 @@
 					<feature mandatory="true" name="Chat"/>
 					<feature name="Notificaciones"/>
 					<feature mandatory="true" name="Mensajeria_Interna"/>
-				</and>
-				<and mandatory="true" name="Template">
-					<feature name="Panel_Busqueda"/>
-					<feature mandatory="true" name="Header"/>
-					<feature mandatory="true" name="Footer"/>
 				</and>
 				<and mandatory="true" name="Gestor_Contenido">
 					<feature mandatory="true" name="Gestor_Producto"/>
@@ -124,7 +117,7 @@
 			<rule>
 				<imp>
 					<var>Administración_Perfil</var>
-					<var>Registro</var>
+					<var>RegistroCliente</var>
 				</imp>
 			</rule>
 			<rule>
@@ -185,12 +178,6 @@
 			</rule>
 			<rule>
 				<imp>
-					<var>Reestablecimiento_Contraseña</var>
-					<var>Correo_Electronico</var>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
 					<var>Notificaciones</var>
 					<var>Correo_Electronico</var>
 				</imp>
@@ -199,12 +186,6 @@
 				<imp>
 					<var>Reporte_Reviews</var>
 					<var>Review</var>
-				</imp>
-			</rule>
-			<rule>
-				<imp>
-					<var>Panel_Busqueda</var>
-					<var>Busquedas</var>
 				</imp>
 			</rule>
 			<rule>
