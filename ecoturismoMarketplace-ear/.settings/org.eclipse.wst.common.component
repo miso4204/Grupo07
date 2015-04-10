@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ecoturismoMarketplace-ear">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
+        <dependent-module archiveName="ecoturismoMarketplaceUser-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceUser-war/ecoturismoMarketplaceUser-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceFrontEnd-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceFrontEnd-war/ecoturismoMarketplaceFrontEnd-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceSocialNetwork-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceSocialNetwork-war/ecoturismoMarketplaceSocialNetwork-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceShoppingCart-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceShoppingCart-war/ecoturismoMarketplaceShoppingCart-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceReports-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceReports-war/ecoturismoMarketplaceReports-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceProduct-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceProduct-war/ecoturismoMarketplaceProduct-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplacePay-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplacePay-war/ecoturismoMarketplacePay-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceAdminMoneda-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceAdminMoneda-war/ecoturismoMarketplaceAdminMoneda-war">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceDB-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceDB-ejb/ecoturismoMarketplaceDB-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplacePay-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplacePay-ejb/ecoturismoMarketplacePay-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceReports-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceReports-ejb/ecoturismoMarketplaceReports-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceProduct-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceProduct-ejb/ecoturismoMarketplaceProduct-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceShoppingCart-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceShoppingCart-ejb/ecoturismoMarketplaceShoppingCart-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceAdminMoneda-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceAdminMoneda-ejb/ecoturismoMarketplaceAdminMoneda-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceSocialNetwork-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceSocialNetwork-ejb/ecoturismoMarketplaceSocialNetwork-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ecoturismoMarketplaceUser-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceUser-ejb/ecoturismoMarketplaceUser-ejb">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
