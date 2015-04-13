@@ -1,4 +1,4 @@
 $(function () {
 	$( "#datepicker" ).datepicker();
-	$( "#datepicker2" ).datepicker();
+	$( "#datepicker2" ).datepicker();	
 });

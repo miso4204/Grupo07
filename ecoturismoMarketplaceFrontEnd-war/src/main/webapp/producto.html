@@ -12,7 +12,8 @@
     <link href="css/price-range.css" rel="stylesheet">
     <link href="css/animate.css" rel="stylesheet">
 	<link href="css/main.css" rel="stylesheet">
-	<link href="css/responsive.css" rel="stylesheet">
+	<link href="css/responsive.css" rel="stylesheet">	
+	<link href="css/jquery-ui/jquery-ui.css" rel="stylesheet">
     <!--[if lt IE 9]>
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
@@ -78,10 +79,8 @@
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Cuenta</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Iniciar Sesión</a></li>
+							<ul id="menu-session" class="nav navbar-nav">
+								
 							</ul>
 						</div>
 					</div>
@@ -103,15 +102,9 @@
 						</div>
 						<div class="mainmenu pull-left">
 							<ul class="nav navbar-nav collapse navbar-collapse">
-								<li><a href="index.html" class="active">Inicio</a></li>
-								<li class="dropdown"><a href="#">Agencia<i class="fa fa-angle-down"></i></a>
-                                    <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Planes</a></li>
-										<li><a href="cart.html">Carrito</a></li> 
-										<li><a href="login.html">Iniciar Sesión</a></li> 
-                                    </ul>
-                                </li> 
-								<li><a href="contact-us.html">Contáctanos</a></li>
+								<li><a href="index.html">Inicio</a></li>
+								<li><a href="shop.html"  >Planes</a></li>
+								<li><a href="contactanos.html">Contáctanos</a></li>
 							</ul>
 						</div>
 					</div>
@@ -177,7 +170,7 @@
 								<span>
 									<span>US $59</span>
 									<label>Cantidad:</label>
-									<input type="text" value="3" />
+									<input type="text" value="3" />									
 									<button type="button" class="btn btn-fefault cart">
 										<i class="fa fa-shopping-cart"></i>
 										Agregar al Carro
@@ -268,18 +261,16 @@
 									<ul>
 										<li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
 										<li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-										<li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
+										<li><a href=""><i class="fa fa-calendar-o"></i>31 DIC 2014</a></li>
 									</ul>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									<p><b>Write Your Review</b></p>
-									
+									<b>Calificación: </b> <img src="images/home/rating.png" alt="" />
+								</div>
+								<div style="display:none" id="form-publish" class="col-sm-12">
+									<p><b>Escribe tu comentario</b></p>
 									<form action="#">
-										<span>
-											<input type="text" placeholder="Your Name"/>
-											<input type="email" placeholder="Email Address"/>
-										</span>
 										<textarea name="" ></textarea>
-										<b>Rating: </b> <img src="images/home/rating.png" alt="" />
+										<b>Calificación: </b> <img src="images/home/rating.png" alt="" />
 										<button type="button" class="btn btn-default pull-right">
 											Submit
 										</button>
@@ -288,98 +279,7 @@
 							</div>
 							
 						</div>
-					</div><!--/category-tab-->
-					<!--
-					<div class="recommended_items"><!--recommended_items
-						<h2 class="title text-center">recommended items</h2>
-						
-						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="item active">	
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend1.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend2.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend3.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="item">	
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend1.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend2.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-4">
-										<div class="product-image-wrapper">
-											<div class="single-products">
-												<div class="productinfo text-center">
-													<img src="images/home/recommend3.jpg" alt="" />
-													<h2>$56</h2>
-													<p>Easy Polo Black Edition</p>
-													<button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
-								<i class="fa fa-angle-left"></i>
-							  </a>
-							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
-								<i class="fa fa-angle-right"></i>
-							  </a>			
-						</div>
-					</div><!--/recommended_items-->
+					</div>
 					
 				</div>
 			</div>
@@ -458,13 +358,21 @@
 		
 	</footer><!--/Footer-->
 	
-
+	<div style="display:none" id="dialog" class="col-sm-12" title="¡Hey! ¿Qué intentas?">
+	  <div class="productinfo text-center  dialog-modal">
+			<img src="images/home/Logo-Eco.png" alt="" />		
+			<p>Para poder realizar esta acción debes iniciar sesión en la plataforma.</p>
+			<a id="button-register" href="login.html" class="btn btn-default add-to-cart">Iniciar Sesión</a>		
+	  </div>	 
+	</div>
   
     <script src="js/jquery.js"></script>
+	<script src="js/jquery-ui.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
     <script src="js/main.js"></script>
+	<script src="js/product.js"></script>
 </body>
 </html>

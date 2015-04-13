@@ -25,6 +25,7 @@
 </head><!--/head-->
 
 <body>
+	<script>if(!localStorage['token'])window.location.href = 'index.html';</script>
 	<header id="header"><!--header-->
 		<div class="header_top"><!--header_top-->
 			<div class="container">
@@ -78,10 +79,8 @@
 					</div>
 					<div class="col-sm-8">
 						<div class="shop-menu pull-right">
-							<ul class="nav navbar-nav">
-								<li><a href="#"><i class="fa fa-user"></i> Cuenta</a></li>
-								<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>
-								<li><a href="login.html"><i class="fa fa-lock"></i> Iniciar Sesión</a></li>
+							<ul id="menu-session" class="nav navbar-nav">
+							
 							</ul>
 						</div>
 					</div>

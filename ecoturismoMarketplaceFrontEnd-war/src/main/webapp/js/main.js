@@ -27,4 +27,36 @@ $(document).ready(function(){
 	        zIndex: 2147483647 // Z-Index for the overlay
 		});
 	});
+	//Validate sessión
+	if(localStorage['token']){
+		$("#menu-session").append('<li><a href="account.html"><i class="fa fa-user"></i>'+localStorage['name']+'</a></li>');
+		$("#menu-session").append('<li><a href="cart.html"><i class="fa fa-shopping-cart"></i> Carrito</a></li>');
+		var a = $('<a href="">').append('<i class="fa fa-lock"></i> Cerrar Sesión</a></li>');
+		a.click(function (event){logout()});		
+		$("#menu-session").append($('<li>').append(a));    
+	}else{
+		$("#menu-session").append('<li><a href="login.html"><i class="fa fa-lock"></i> Iniciar Sesión</a></li>');
+	}
+	$('.add-to-cart').click(function(){checkLogin()});
+    $('.cart').click(function(){checkLogin()});
 });
+
+function checkLogin(){
+	if(localStorage['token']){
+		
+	}else{
+		showLogin();
+	}
+}
+
+function logout(){
+	//$.post("", {token:localStorage['token']}, function(data){}, 'json');
+	localStorage['token']='';
+	localStorage['name']='';
+	window.location.href = 'index.html';
+}
+
+function showLogin(){
+	 $( "#dialog" ).dialog({ modal: true, minWidth:400 });	
+}
+
