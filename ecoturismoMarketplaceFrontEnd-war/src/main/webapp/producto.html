@@ -120,9 +120,7 @@
 	
 	<section>
 		<div class="container">
-			<div class="row">
-				
-				
+			<div class="row">				
 				<div class="col-sm-12 padding-right">
 					<div class="product-details"><!--product-details-->
 						<div class="col-sm-5">
@@ -162,11 +160,19 @@
 							</div>
 
 						</div>
-						<div class="col-sm-7">
+						<div class="col-sm-7">							
 							<div class="product-information"><!--/product-information-->
-								<h2>Un día con las culturas indigenas</h2>
-								<p>Código: 1089772</p>
-								<img src="images/home/rating.png" alt="" />
+								<div class="row"> 
+									<h2>Un día con las culturas indigenas</h2>	
+									<span>					
+										<p>Código: 1089772</p>
+										<img src="images/home/rating.png" alt="" />
+									</span>
+									<h2><b>Lugar:</b> Arequipa</h2>										
+								</div>
+								<div class="row">    		   			   			  			    				    				
+									<div id="gmap" class="product-map"></div>		 		
+								</div> 								
 								<span>
 									<span>US $59</span>
 									<label>Cantidad:</label>
@@ -177,7 +183,6 @@
 									</button>
 								</span>
 								<p><b>Categoría:</b> Sitio</p>
-								<p><b>Lugar:</b> Arequipa</p>
 								<p><b>Fecha Inicial:    </b><i class="fa fa-calendar"></i> DEC 5, 2015</p>
 								<p><b>Fecha Final:    </b><i class="fa fa-calendar"></i> DEC 5, 2015</p>
 							</div><!--/product-information-->
@@ -265,8 +270,9 @@
 									</ul>
 									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 									<b>Calificación: </b> <img src="images/home/rating.png" alt="" />
-								</div>
-								<div style="display:none" id="form-publish" class="col-sm-12">
+								</div>								
+								<div id="form-publish" class="col-sm-12">
+									<br<
 									<p><b>Escribe tu comentario</b></p>
 									<form action="#">
 										<textarea name="" ></textarea>
@@ -368,6 +374,8 @@
   
     <script src="js/jquery.js"></script>
 	<script src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>    
+	<script type="text/javascript" src="js/gmaps.js"></script>
 	<script src="js/price-range.js"></script>
     <script src="js/jquery.scrollUp.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
