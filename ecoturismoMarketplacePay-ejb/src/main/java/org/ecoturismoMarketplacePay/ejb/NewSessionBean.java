@@ -6,11 +6,6 @@ package org.ecoturismoMarketplacePay.ejb;
 
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
-
-import org.omg.CORBA.UserException;
-
-import ecoturismo.user.model.Usuario;
-
 /**
  *
  * @author martin
@@ -18,9 +13,6 @@ import ecoturismo.user.model.Usuario;
 @Stateless
 @LocalBean
 public class NewSessionBean {
-	
-	UserException es;
-	Usuario u;
 
     public void businessMethod() {
     }

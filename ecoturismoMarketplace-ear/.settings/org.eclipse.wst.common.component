@@ -2,7 +2,7 @@
     <wb-module deploy-name="ecoturismoMarketplace-ear">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
-        <dependent-module archiveName="ecoturismoMarketplaceUser-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceUser-war/ecoturismoMarketplaceUser-war">
+        <dependent-module archiveName="ecoturismoMarketplaceLoginModule-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceLoginModule-war/ecoturismoMarketplaceLoginModule-war">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ecoturismoMarketplaceFrontEnd-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceFrontEnd-war/ecoturismoMarketplaceFrontEnd-war">
@@ -26,10 +26,10 @@
         <dependent-module archiveName="ecoturismoMarketplaceAdminMoneda-war.war" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceAdminMoneda-war/ecoturismoMarketplaceAdminMoneda-war">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ecoturismoMarketplaceDB-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceDB-ejb/ecoturismoMarketplaceDB-ejb">
+        <dependent-module archiveName="ecotiurismoMarketplaceLoginModule-ejb.jar" deploy-path="/" handle="module:/resource/ecotiurismoMarketplaceLoginModule-ejb/ecotiurismoMarketplaceLoginModule-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module archiveName="ecoturismoMarketplacePay-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplacePay-ejb/ecoturismoMarketplacePay-ejb">
+        <dependent-module archiveName="ecoturismoMarketplaceDB-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceDB-ejb/ecoturismoMarketplaceDB-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ecoturismoMarketplaceReports-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceReports-ejb/ecoturismoMarketplaceReports-ejb">
@@ -45,9 +45,6 @@
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <dependent-module archiveName="ecoturismoMarketplaceSocialNetwork-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceSocialNetwork-ejb/ecoturismoMarketplaceSocialNetwork-ejb">
-            <dependency-type>uses</dependency-type>
-        </dependent-module>
-        <dependent-module archiveName="ecoturismoMarketplaceUser-ejb.jar" deploy-path="/" handle="module:/resource/ecoturismoMarketplaceUser-ejb/ecoturismoMarketplaceUser-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

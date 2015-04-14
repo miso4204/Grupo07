@@ -3,8 +3,8 @@
   <display-name>ecoturismoMarketplace-ear</display-name>
   <module>
     <web>
-      <web-uri>ecoturismoMarketplaceUser-war.war</web-uri>
-      <context-root>/user</context-root>
+      <web-uri>ecoturismoMarketplaceLoginModule-war.war</web-uri>
+      <context-root>/loginModule</context-root>
     </web>
   </module>
   <module>
@@ -50,10 +50,10 @@
     </web>
   </module>
   <module>
-    <ejb>ecoturismoMarketplaceDB-ejb.jar</ejb>
+    <ejb>ecotiurismoMarketplaceLoginModule-ejb.jar</ejb>
   </module>
   <module>
-    <ejb>ecoturismoMarketplacePay-ejb.jar</ejb>
+    <ejb>ecoturismoMarketplaceDB-ejb.jar</ejb>
   </module>
   <module>
     <ejb>ecoturismoMarketplaceReports-ejb.jar</ejb>
@@ -69,9 +69,6 @@
   </module>
   <module>
     <ejb>ecoturismoMarketplaceSocialNetwork-ejb.jar</ejb>
-  </module>
-  <module>
-    <ejb>ecoturismoMarketplaceUser-ejb.jar</ejb>
   </module>
   <library-directory>lib</library-directory>
 </application>

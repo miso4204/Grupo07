@@ -40,15 +40,22 @@
     <dependencies> 
 
         <!-- Depend on the ejb module and war so that we can package them -->
+        
         <dependency>
             <groupId>spl</groupId>
-            <artifactId>ecoturismoMarketplaceDB-ejb</artifactId>
+            <artifactId>ecotiurismoMarketplaceLoginModule-ejb</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
         <dependency>
             <groupId>spl</groupId>
-            <artifactId>ecoturismoMarketplacePay-ejb</artifactId>
+            <artifactId>ecoturismoMarketplaceLoginModule-war</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+        <dependency>
+            <groupId>spl</groupId>
+            <artifactId>ecoturismoMarketplaceDB-ejb</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>ejb</type>
         </dependency>
@@ -81,18 +88,6 @@
             <artifactId>ecoturismoMarketplaceSocialNetwork-ejb</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <type>ejb</type>
-        </dependency>
-        <dependency>
-            <groupId>spl</groupId>
-            <artifactId>ecoturismoMarketplaceUser-ejb</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>ejb</type>
-        </dependency>
-        <dependency>
-            <groupId>spl</groupId>
-            <artifactId>ecoturismoMarketplaceUser-war</artifactId>
-            <type>war</type>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>spl</groupId>
@@ -154,10 +149,10 @@
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <fileNameMapping>no-version</fileNameMapping>
                    <modules>
-                   	<webModule>
+                   <webModule>
                    		<groupId>spl</groupId>
-                   		<artifactId>ecoturismoMarketplaceUser-war</artifactId>
-                   		<contextRoot>/user</contextRoot>
+                   		<artifactId>ecoturismoMarketplaceLoginModule-war</artifactId>
+                   		<contextRoot>/loginModule</contextRoot>
                    	</webModule>
                    	<webModule>
                    		<groupId>spl</groupId>

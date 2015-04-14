@@ -25,10 +25,8 @@
 		</license>
 	</licenses>
 	<modules>
-		<module>ecoturismoMarketplaceUser-ejb</module>
+		
 		<module>ecoturismoMarketplace-ear</module>
-		<module>ecoturismoMarketplacePay-ejb</module>
-		<module>ecoturismoMarketplaceUser-war</module>
 		<module>ecoturismoMarketplaceReports-ejb</module>
 		<module>ecoturismoMarketplaceProduct-ejb</module>
 		<module>ecoturismoMarketplaceShoppingCart-ejb</module>
@@ -43,6 +41,8 @@
     <module>ecoturismoMarketplaceAdminMoneda-war</module>
     <module>ecoturismoMarketplaceDB-ejb</module>
     <module>ecoturismoMarketplaceFrontEnd-war</module>
+    <module>ecotiurismoMarketplaceLoginModule-ejb</module>
+    <module>ecoturismoMarketplaceLoginModule-war</module>
   </modules>
 
 	<properties>
@@ -79,6 +79,13 @@
 
 			<!-- Define the version of the EJB jar so that we don't need to repeat 
 				ourselves in every module -->
+			
+			<dependency>
+				<groupId>spl</groupId>
+				<artifactId>ecoturismoMarketplaceLogin-ejb</artifactId>
+				<version>${project.version}</version>
+				<scope>provided</scope>
+			</dependency>
 			<dependency>
 				<groupId>spl</groupId>
 				<artifactId>ecoturismoMarketplaceDB-ejb</artifactId>
@@ -86,14 +93,6 @@
 				<scope>provided</scope>
 			</dependency>
 			
-			<dependency>
-				<groupId>spl</groupId>
-				<artifactId>ecoturismoMarketplaceUser-ejb</artifactId>
-				<version>${project.version}</version>
-				<scope>provided</scope>
-			</dependency>
-
-
 			<dependency>
 				<groupId>spl</groupId>
 				<artifactId>ecoturismoMarketplaceReports-ejb</artifactId>
@@ -125,13 +124,6 @@
 			<dependency>
 				<groupId>spl</groupId>
 				<artifactId>ecoturismoMarketplaceSocialNetwork-ejb</artifactId>
-				<version>${project.version}</version>
-				<scope>provided</scope>
-			</dependency>
-			
-			<dependency>
-				<groupId>spl</groupId>
-				<artifactId>ecoturismoMarketplacePay-ejb</artifactId>
 				<version>${project.version}</version>
 				<scope>provided</scope>
 			</dependency>

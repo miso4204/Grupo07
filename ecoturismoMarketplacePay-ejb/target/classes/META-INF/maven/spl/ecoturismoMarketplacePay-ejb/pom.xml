@@ -20,10 +20,6 @@
     </properties>
 
     <dependencies>
-    <dependency>
-            <groupId>spl</groupId>
-            <artifactId>ecoturismoMarketplaceUser-ejb</artifactId>
-        </dependency>
         <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-api</artifactId>
