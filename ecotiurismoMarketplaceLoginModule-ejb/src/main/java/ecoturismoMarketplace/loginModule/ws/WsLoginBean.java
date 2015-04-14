@@ -7,12 +7,15 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
  
+
+
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.inject.Inject; 
 
 import org.ecoturismoMarketplaceDB.model.Usuario;
+import org.ecoturismoMarketplaceDB.model.dao.CategoriaDao;
 import org.ecoturismoMarketplaceDB.model.dao.UsuarioDao;
 
 import ecoturismoMarketplace.loginModule.exception.InvalidRequestException;
@@ -20,13 +23,15 @@ import ecoturismoMarketplace.loginModule.exception.NoAccessException;
 
 
 @Stateless
-@LocalBean
+//@LocalBean
 public class WsLoginBean {
 	
 	private static final Logger log = Logger.getLogger(WsLoginBean.class.getName());
 
 	@EJB
     private UsuarioDao usuarioDao;
+	@Inject
+	private CategoriaDao categoriaDao;
 	
 	public void crearUsuario(Usuario u){
 		usuarioDao.create(u);
@@ -90,7 +95,7 @@ public class WsLoginBean {
         }
     }
     
-    public void registrarUsuario(String nombre,String apellidos,String correo,String direccion,String user, String pass) throws InvalidRequestException{
+    public String registrarUsuario(String nombre,String apellidos,String correo,String direccion,String user, String pass) throws InvalidRequestException{
     	
     	if(nombre != null && apellidos != null && correo != null && direccion != null && user != null && pass != null
     	   && !nombre.isEmpty() && !apellidos.isEmpty() && !correo.isEmpty() && !direccion.isEmpty() && !user.isEmpty() && !pass.isEmpty()){
@@ -104,7 +109,15 @@ public class WsLoginBean {
     		u.setPassword(pass);
     		u.setUsername(user);
     	
+    		String token = UUID.randomUUID().toString().toUpperCase();
+
+            u.setToken(token);
+             
     		usuarioDao.create(u);
+    		
+            log.log(Level.INFO, "El usuario [{0}] se registró!", u.getNombre());
+            
+    		return token;
     		
     	} else {
     		

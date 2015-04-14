@@ -11,7 +11,10 @@ import javax.validation.constraints.Size;
 @Table(name = "PRODUCTO")
 //@XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p")
+    @NamedQuery(name = "Producto.findAll", query = "SELECT p FROM Producto p"),
+    @NamedQuery(name = "Producto.findById", query = "SELECT p FROM Producto p WHERE p.id = :id"),
+    @NamedQuery(name = "Producto.findByCategoria", query = "SELECT p FROM Producto p WHERE p.idCategoria.id = :idCategoria"),
+    @NamedQuery(name = "Imagen.countByCategoria", query = "SELECT COUNT(p) FROM Producto p WHERE p.idCategoria.id = :idCategoria")
 })
 
 public class Producto implements Serializable {

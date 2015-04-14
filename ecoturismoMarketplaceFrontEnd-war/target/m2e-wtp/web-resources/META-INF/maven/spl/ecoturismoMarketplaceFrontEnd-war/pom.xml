@@ -23,10 +23,10 @@
     </parent>
 
     <groupId>spl</groupId>
-    <artifactId>ecoturismoMarketplaceProduct-war</artifactId>
+    <artifactId>ecoturismoMarketplaceFrontEnd-war</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>WildFly Quickstarts: ecoturismoMarketplaceProduct-war</name>
+    <name>WildFly Quickstarts: ecoturismoMarketplaceFrontEnd-war</name>
     <description>A starter Java EE 7 webapp project for use on JBoss WildFly / WildFly, generated from the jboss-javaee6-webapp archetype</description>
 
     <url>http://wildfly.org</url>
@@ -91,20 +91,12 @@
     </dependencyManagement>
 
     <dependencies>
-    
 
         <!-- First declare the APIs we depend on and need for compilation. All 
             of them are provided by JBoss WildFly -->
 
         <!-- Import the CDI API, we use provided scope as the API is included in 
             JBoss WildFly -->
-            
-        <dependency>
-            <groupId>spl</groupId>
-            <artifactId>ecoturismoMarketplaceProduct-ejb</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-            <type>ejb</type>
-        </dependency>  
         <dependency>
             <groupId>javax.enterprise</groupId>
             <artifactId>cdi-api</artifactId>

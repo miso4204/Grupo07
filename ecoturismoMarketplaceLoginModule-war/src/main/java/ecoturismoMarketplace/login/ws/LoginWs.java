@@ -20,7 +20,7 @@ import ecoturismoMarketplace.loginModule.exception.NoAccessException;
 import ecoturismoMarketplace.loginModule.ws.WsLoginBean;
 
 
-@Path("/customers")
+@Path("/")
 //@Stateless
 //@LocalBean
 public class LoginWs {
@@ -30,80 +30,9 @@ public class LoginWs {
 	@Inject
 	private WsLoginBean wsBean;
 	
-	@GET
-    @Path("/user1")
-    @Produces("text/html")
-    public String user1() {
-    	
-         Usuario employee = new Usuario();
-         employee.setNombre("JuanD");
-         employee.setApellidos("PovedaT");
-         employee.setUsername("jdpt");
-         employee.setPassword("A123");
-         employee.setDireccion("xxyyzz");
-         employee.setCorreo("aa@bb.cc");
-         employee.setTelefono("7444444");
-        
-         wsBean.crearUsuario(employee);
-    	
-    return "<h2>Creado Usuario 1! "+"</h2>";
-    }
-    
-    @GET
-    @Path("/user2")
-    @Produces("text/html")
-    public String user2() {
-    	
-         Usuario employee = new Usuario();
-         employee.setNombre("Juan");
-         employee.setApellidos("Poveda");
-         employee.setUsername("jdp");
-         employee.setPassword("A456");
-         employee.setDireccion("xxwwyyzz");
-         employee.setCorreo("aa@bb.cwwc");
-         employee.setTelefono("7422224");
-        
-         wsBean.crearUsuario(employee);
-    	
-    return "<h2>Creado Usuario 2! "+"</h2>";
-    }
+	//**********************Servicios para manejo de sesion del usuario***********************
 	
-    @GET
-    @Path("/test")
-    @Produces("text/html")
-    public String getHtml() {
-    	
-    
-    return "<h2>Login... "+"</h2>";
-    }
-    
-    @GET
-    @Path("/fakeLogin")
-    @Produces("text/html")
-    public String fakeLogin() {
-    	
-    	try {
-            String ud = wsBean.login("jdpt", "A123");
-            log.log(Level.INFO, "Usuario [{0}] inicio sesion correctamente", "jdpt");
-            System.out.println(Response.ok(ud).build());
-            return "<h2>Fake Login Exitoso... token: "+ ud +"</h2>";
-        } catch (NoAccessException ex) {
-        	return "<h2>Fake Login Fallo... "+"</h2>";
-        }
-    	
-    }
-    
-    @GET
-    @Path("/fakeLogout/{token}")
-    public Response fakeLogout(@PathParam("token") String token) {
-        try {
-            wsBean.logout(token);
-            return Response.ok().build();
-        } catch (InvalidRequestException ex) {
-            return Response.status(Response.Status.BAD_REQUEST).entity(ex.getMessage()).build();
-        }
-    }
-    
+	
     @POST
     @Path("/login")
     @Produces(MediaType.APPLICATION_JSON)
@@ -136,12 +65,80 @@ public class LoginWs {
     		@FormParam("direccion") String direccion, @FormParam("user") String user,
     		@FormParam("pass") String pass) {
         try {
-            wsBean.registrarUsuario(nombre,apellidos,correo,direccion,user, pass);
+            String token = wsBean.registrarUsuario(nombre,apellidos,correo,direccion,user, pass);
             log.log(Level.INFO, "Registrando usuario [{0}]", user);
-            return Response.ok().build();
+            return Response.ok(token).build();
         } catch (InvalidRequestException ex) {
             return Response.status(Response.Status.BAD_REQUEST).entity(ex.getMessage()).build();
         }
     }
+    
+  //*************************** Servicios de prueba ***************************
+	
+  	@GET
+      @Path("/user1")
+      @Produces("text/html")
+      public String user1() {
+      	
+           Usuario employee = new Usuario();
+           employee.setNombre("JuanD");
+           employee.setApellidos("PovedaT");
+           employee.setUsername("jdpt");
+           employee.setPassword("A123");
+           employee.setDireccion("xxyyzz");
+           employee.setCorreo("aa@bb.cc");
+           employee.setTelefono("7444444");
+          
+           wsBean.crearUsuario(employee);
+      	
+      return "<h2>Creado Usuario 1! "+"</h2>";
+      }
+      
+      @GET
+      @Path("/user2")
+      @Produces("text/html")
+      public String user2() {
+      	
+           Usuario employee = new Usuario();
+           employee.setNombre("Juan");
+           employee.setApellidos("Poveda");
+           employee.setUsername("jdp");
+           employee.setPassword("A456");
+           employee.setDireccion("xxwwyyzz");
+           employee.setCorreo("aa@bb.cwwc");
+           employee.setTelefono("7422224");
+          
+           wsBean.crearUsuario(employee);
+      	
+      return "<h2>Creado Usuario 2! "+"</h2>";
+      }
+  	  
+      @GET
+      @Path("/fakeLogin")
+      @Produces("text/html")
+      public String fakeLogin() {
+      	
+      	try {
+              String ud = wsBean.login("jdpt", "A123");
+              log.log(Level.INFO, "Usuario [{0}] inicio sesion correctamente", "jdpt");
+              System.out.println(Response.ok(ud).build());
+              return "<h2>Fake Login Exitoso... token: "+ ud +"</h2>";
+          } catch (NoAccessException ex) {
+          	return "<h2>Fake Login Fallo... "+"</h2>";
+          }
+      	
+      }
+      
+      @GET
+      @Path("/fakeLogout/{token}")
+      public Response fakeLogout(@PathParam("token") String token) {
+          try {
+              wsBean.logout(token);
+              return Response.ok().build();
+          } catch (InvalidRequestException ex) {
+              return Response.status(Response.Status.BAD_REQUEST).entity(ex.getMessage()).build();
+          }
+      }
+      
    
 }
